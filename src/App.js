@@ -1,13 +1,22 @@
+import { useEffect, useState } from "react"
 import "./App.css"
+import boredApi from "./boredApi"
+import { QueryClient, QueryClientProvider } from "react-query"
+import Activity from "./components/Activity"
 
 function App() {
+  
+  const queryClient = new QueryClient()
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1>DOLIAMI</h1>
-        <img className='App-logo'  src='https://i.imgur.com/4Q4Q4Q4.png' alt='DOLIAMI' />
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+
+      <div className='App'>
+        <header className='App-header'>
+          <Activity />
+         
+        </header>
+      </div>
+    </QueryClientProvider>
   )
 }
 
